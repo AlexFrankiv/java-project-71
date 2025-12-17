@@ -4,6 +4,8 @@ plugins {
     id("java")
     id("com.github.ben-manes.versions") version "0.51.0"
     application
+    checkstyle
+    id("org.sonarqube") version "7.2.1.6560"
 }
 
 group = "hexlet.code"
@@ -14,6 +16,15 @@ repositories {
 }
 application {
     mainClass = "hexlet.code.App"
+}
+sonar {
+    properties {
+        property("sonar.projectKey", "AlexFrankiv_java-project-71")
+        property("sonar.organization", "alexfrankiv")
+    }
+}
+checkstyle {
+    toolVersion = "10.12.4"
 }
 
 dependencies {

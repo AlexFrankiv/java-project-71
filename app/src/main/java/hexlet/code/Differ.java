@@ -1,9 +1,14 @@
 package hexlet.code;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Objects;
 
 public class Differ {
-    public static String generate(Map<String, Object> map1, Map<String, Object> map2){
+    public static String generate(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> allKeys = new TreeSet<>();
         allKeys.addAll(map1.keySet());
         allKeys.addAll(map2.keySet());
@@ -21,7 +26,7 @@ public class Differ {
                 Object valueMap1 = map1.get(key);
                 Object valueMap2 = map2.get(key);
 
-                if (Objects.equals(valueMap1,valueMap2)) {
+                if (Objects.equals(valueMap1, valueMap2)) {
                     result.add("  " + key + valueMap1);
                 } else {
                     result.add("- " + key + ": " + valueMap1);

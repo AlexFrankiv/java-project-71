@@ -50,11 +50,11 @@ class App implements Runnable {
             String content2 = Files.readString(f2.toPath());
 
             ObjectMapper mapper = new ObjectMapper();
-            Map<String,Object> map1 = mapper.readValue(content1,new TypeReference<Map<String, Object>>() {});
-            Map<String,Object> map2 = mapper.readValue(content2,new TypeReference<Map<String, Object>>() {});
+            Map<String, Object> map1 = mapper.readValue(content1, new TypeReference<Map<String, Object>>() { });
+            Map<String, Object> map2 = mapper.readValue(content2, new TypeReference<Map<String, Object>>() { });
             System.out.println(map1);
             System.out.println(map2);
-            String diff = Differ.generate(map1,map2);
+            String diff = Differ.generate(map1, map2);
             System.out.println(diff);
         } catch (IOException e) {
             throw new RuntimeException(e);
