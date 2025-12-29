@@ -25,7 +25,8 @@ class App implements Runnable {
 
     @Option(names = {"-f", "--format"},
             paramLabel = "format",
-            description = "output format [default: stylish]")
+            defaultValue = "stylish",
+            description = "output format ${default: stylish}")
             String format;
 
     @Override
