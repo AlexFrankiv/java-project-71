@@ -6,7 +6,6 @@ import java.io.File;
 import java.nio.file.Files;
 import java.util.Map;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -44,23 +43,32 @@ public class DiferTest {
         assertTrue(result.contains("+ verbose: true"));
     }
     @Test
-    void testRealJsonFiles() throws Exception {
-        File file1 = new File("src/test/resources/file1.json");
-        File file2 = new File("src/test/resources/file2.json");
+    void testNestedJsonFiles() throws Exception {
+        File json1 = new File("src/test/resources/file1.json");
+        File json2 = new File("src/test/resources/file2.json");
 
-        if (file1.exists() && file2.exists()) {
-            String result = Differ.generate(file1, file2, "stylish");
-            assertNotNull(result);
-        }
+        String result = Differ.generate(json1, json2, "stylish");
+
+        assertTrue(result.contains("chars1: [a, b, c]"));
+        assertTrue(result.contains("- chars2: [d, e, f]"));
+        assertTrue(result.contains("+ chars2: false"));
+        assertTrue(result.contains("- checked: false"));
+        assertTrue(result.contains("+ checked: true"));
+        assertTrue(result.contains("- default: null"));
+        assertTrue(result.contains("+ default: [value1, value2]"));
+        assertTrue(result.contains("+ obj1: {nestedKey=value, isNested=true}"));
     }
     @Test
-    void testRealYamlFiles() throws Exception {
-        File file1 = new File("src/test/resources/file1.yml");
-        File file2 = new File("src/test/resources/file2.yml");
+    void testNestedYamlFiles() throws Exception {
+        File yaml1 = new File("src/test/resources/filepath1.yml");
+        File yaml2 = new File("src/test/resources/filepath2.yml");
 
-        if (file1.exists() && file2.exists()) {
-            String result = Differ.generate(file1, file2, "stylish");
-            assertNotNull(result);
-        }
+        String result = Differ.generate(yaml1, yaml2, "stylish");
+
+        assertTrue(result.contains("chars1: [a, b, c]"));
+        assertTrue(result.contains("- chars2: [d, e, f]"));
+        assertTrue(result.contains("+ chars2: false"));
+        assertTrue(result.contains("+ obj1: {nestedKey=value, isNested=true}"));
     }
+
 }
