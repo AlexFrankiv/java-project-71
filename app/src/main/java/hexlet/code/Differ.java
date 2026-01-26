@@ -25,6 +25,13 @@ public class Differ {
     public static String generate(Map<String, Object> map1, Map<String, Object> map2) throws Exception {
         return generate(map1, map2, "stylish");
     }
+    public static String generate(String filepath1, String filepath2) throws Exception {
+        return generate(new File(filepath1), new File(filepath2), "stylish");
+    }
+
+    public static String generate(String filepath1, String filepath2, String format) throws Exception {
+        return generate(new File(filepath1), new File(filepath2), format);
+    }
 
     private static List<DiffItem> collectDiffs(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> allKeys = new TreeSet<>();
