@@ -16,18 +16,18 @@ class App implements Runnable {
     @Parameters(index = "0",
             description = "path to first file",
             paramLabel = "filepath1")
-            File filepath1;
+            private File filepath1;
 
     @Parameters(index = "1",
             description = "path to second file",
             paramLabel = "filepath2")
-            File filepath2;
+            private File filepath2;
 
     @Option(names = {"-f", "--format"},
             paramLabel = "format",
             defaultValue = "stylish",
             description = "output format ${default: stylish}")
-            String format;
+            private String format;
 
     @Override
     public void run() {

@@ -11,6 +11,8 @@ public class DiferTest {
     private static final String FILE2_JSON = "src/test/resources/file2.json";
     private static final String FILE1_YML = "src/test/resources/filepath1.yml";
     private static final String FILE2_YML = "src/test/resources/filepath2.yml";
+    private static final int MIN_RESULT_LENGTH = 10;
+    private static final int MIN_JSON_LENGTH = 2;
 
     @Test
     void testGenerateStylishJson() throws Exception {
@@ -19,7 +21,7 @@ public class DiferTest {
         assertTrue(actual.contains("+ ") || actual.contains("- "), "Should contain +/- markers");
         assertTrue(actual.contains(":"), "Should contain colon separator");
 
-        assertTrue(actual.length() > 10, "Result should not be empty");
+        assertTrue(actual.length() > MIN_RESULT_LENGTH, "Result should not be empty");
     }
     @Test
     void testGeneratePlainYml() throws Exception {
@@ -40,7 +42,7 @@ public class DiferTest {
         JsonNode json = mapper.readTree(actual);
         assertTrue(json.isObject(), "Result should be a valid JSON object");
 
-        assertTrue(json.size() > 0 || json.toString().length() > 2,
+        assertTrue(json.size() > 0 || json.toString().length() > MIN_JSON_LENGTH,
                 "JSON should not be empty");
     }
 }
