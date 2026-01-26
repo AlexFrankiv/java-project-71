@@ -1,7 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.fornatters.Formatter;
-
 import java.io.File;
 import java.util.Map;
 import java.util.List;

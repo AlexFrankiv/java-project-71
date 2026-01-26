@@ -1,5 +1,7 @@
 package hexlet.code;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -21,6 +23,7 @@ public class DiferTest {
         assertTrue(result.contains("+ timeout: 20"));
         assertTrue(result.contains("+ verbose: true"));
     }
+
     @Test
     void testGenerateWithValidAndInvalidFiles() throws Exception {
         File temp1 = Files.createTempFile("test1", ".json").toFile();
@@ -33,6 +36,7 @@ public class DiferTest {
         assertThrows(Exception.class, () ->
                 Differ.generate(new File("fake1.json"), new File("fake2.json"), "stylish"));
     }
+
     @Test
     void testDifferentYamlFiles() throws Exception {
         Map<String, Object> map1 = Map.of("host", "hexlet.io", "timeout", 50);
@@ -44,6 +48,7 @@ public class DiferTest {
         assertTrue(result.contains("+ timeout: 20"));
         assertTrue(result.contains("+ verbose: true"));
     }
+
     @Test
     void testNestedJsonFiles() throws Exception {
         File json1 = new File("src/test/resources/file1.json");
@@ -60,6 +65,7 @@ public class DiferTest {
         assertTrue(result.contains("+ default: [value1, value2]"));
         assertTrue(result.contains("+ obj1: {nestedKey=value, isNested=true}"));
     }
+
     @Test
     void testNestedYamlFiles() throws Exception {
         File yaml1 = new File("src/test/resources/filepath1.yml");
@@ -72,6 +78,7 @@ public class DiferTest {
         assertTrue(result.contains("+ chars2: false"));
         assertTrue(result.contains("+ obj1: {nestedKey=value, isNested=true}"));
     }
+
     @Test
     void testPlainFormat() throws Exception {
         Map<String, Object> map1 = new HashMap<>();
@@ -119,5 +126,30 @@ public class DiferTest {
         assertTrue(result.contains("Property 'setting1' was updated. From 'Some value' to 'Another value'"));
         assertTrue(result.contains("Property 'setting2' was updated. From 200 to 300"));
         assertTrue(result.contains("Property 'setting3' was updated. From true to 'none'"));
+    }
+    @Test
+    void testJsonFormatWithNested() throws Exception {
+        Map<String, Object> map1 = Map.of(
+                "simple", "value",
+                "nested", Map.of("inner", "old"),
+                "array", List.of(1, 2, 3)
+        );
+
+        Map<String, Object> map2 = Map.of(
+                "simple", "new value",
+                "nested", Map.of("inner", "new"),
+                "array", List.of(4, 5, 6),
+                "added", "new key"
+        );
+
+        String result = Differ.generate(map1, map2, "json");
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode json = mapper.readTree(result);
+
+        assertTrue(json.isObject());
+
+        assertTrue(json.has("added") || json.has("removed")
+                || json.has("changed") || json.has("unchanged"));
     }
 }
