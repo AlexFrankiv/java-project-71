@@ -1,34 +1,14 @@
 package hexlet.code;
 
-import hexlet.code.fornatters.Formatter;
-
-import java.io.File;
 import java.util.Map;
-import java.util.List;
 import java.util.Set;
+import java.util.List;
 import java.util.TreeSet;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Differ {
-    public static String generate(Map<String, Object> map1, Map<String, Object> map2, String format) throws Exception {
-        List<DiffItem> diffs = collectDiffs(map1, map2);
-
-        return Formatter.format(diffs, format);
-    }
-
-    public static String generate(File file1, File file2, String format) throws Exception {
-        Map<String, Object> map1 = Parser.parse(file1.getPath());
-        Map<String, Object> map2 = Parser.parse(file2.getPath());
-
-        return generate(map1, map2, format);
-    }
-
-    public static String generate(Map<String, Object> map1, Map<String, Object> map2) throws Exception {
-        return generate(map1, map2, "stylish");
-    }
-
-    private static List<DiffItem> collectDiffs(Map<String, Object> map1, Map<String, Object> map2) {
+public class DiffBuilder {
+    public static List<DiffItem> build(Map<String, Object> map1, Map<String, Object> map2) {
         Set<String> allKeys = new TreeSet<>();
         allKeys.addAll(map1.keySet());
         allKeys.addAll(map2.keySet());
