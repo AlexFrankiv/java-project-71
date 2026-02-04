@@ -1,0 +1,9 @@
+{"version": 2, "width": 104, "height": 24, "timestamp": 1769424527, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.029125, "o", "\u001b[?2004h\u001b]0;alexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV: ~/java-project-71/app\u0007\u001b[01;32malexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV\u001b[00m:\u001b[01;34m~/java-project-71/app\u001b[00m$ "]
+[8.046742, "o", "\u001b[7m./build/install/app/bin/app\u001b[27m\u001b[7m \u001b[27m\u001b[7msrc/test/resources/filepath1.yml src/test/resources/filepath2.yml\u001b[27m"]
+[9.311815, "o", "\u0007"]
+[9.311965, "o", "\u001b[A\r\u001b]0;alexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV: ~/java-project-71/app\u0007\u001b[01;32malexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV\u001b[00m:\u001b[01;34m~/java-project-71/app\u001b[00m$ ./build/install/app/bin/app src/test/resources/filepath1.yml src/test/resources/filepath2.yml"]
+[10.408077, "o", "\r\n\u001b[?2004l\r"]
+[10.769779, "o", "{\r\n    chars1: [a, b, c]\r\n  - chars2: [d, e, f]\r\n  + chars2: false\r\n  - checked: false\r\n  + checked: true\r\n  - default: null\r\n  + default: [value1, value2]\r\n  - id: 45\r\n  + id: null\r\n  - key1: value1\r\n  + key2: value2\r\n    numbers1: [1, 2, 3, 4]\r\n  - numbers2: [2, 3, 4, 5]\r\n  + numbers2: [22, 33, 44, 55]\r\n  - numbers3: [3, 4, 5]\r\n  + numbers4: [4, 5, 6]\r\n  + obj1: {nestedKey=value, isNested=true}\r\n  - setting1: Some value\r\n  + setting1: Another value\r\n  - setting2: 200\r\n  + setting2: 300\r\n  - setting3: true\r\n  + setting3: none\r\n}\r\n"]
+[10.782255, "o", "\u001b[?2004h\u001b]0;alexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV: ~/java-project-71/app\u0007\u001b[01;32malexfran@alexfran-ASUS-TUF-Gaming-A15-FA507NV-FA507NV\u001b[00m:\u001b[01;34m~/java-project-71/app\u001b[00m$ "]
+[15.193858, "o", "\u001b[?2004l\r\r\nexit\r\n"]

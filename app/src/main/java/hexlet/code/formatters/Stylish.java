@@ -1,4 +1,4 @@
-package hexlet.code.fornatters;
+package hexlet.code.formatters;
 
 import hexlet.code.DiffItem;
 

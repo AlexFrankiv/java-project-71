@@ -1,8 +1,8 @@
 package hexlet.code;
 
-import hexlet.code.fornatters.Json;
-import hexlet.code.fornatters.Plain;
-import hexlet.code.fornatters.Stylish;
+import hexlet.code.formatters.Json;
+import hexlet.code.formatters.Plain;
+import hexlet.code.formatters.Stylish;
 
 import java.util.List;
 

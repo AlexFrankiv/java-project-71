@@ -5,7 +5,6 @@ import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 import picocli.CommandLine.Parameters;
 
-import java.io.File;
 
 @Command(name = "gendiff",
         mixinStandardHelpOptions = true,
@@ -16,12 +15,12 @@ class App implements Runnable {
     @Parameters(index = "0",
             description = "path to first file",
             paramLabel = "filepath1")
-            private File filepath1;
+            private String filepath1;
 
     @Parameters(index = "1",
             description = "path to second file",
             paramLabel = "filepath2")
-            private File filepath2;
+            private String filepath2;
 
     @Option(names = {"-f", "--format"},
             paramLabel = "format",
