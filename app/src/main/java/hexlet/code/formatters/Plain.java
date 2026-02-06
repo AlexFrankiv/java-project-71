@@ -26,7 +26,7 @@ public class Plain {
                     break;
                 case "unchanged":
                     break;
-                default: throw new Exception("Unknown status");
+                default: throw new Exception("Unknown status: " + diff.getStatus());
             }
         }
 

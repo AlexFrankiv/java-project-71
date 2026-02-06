@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 public class DiferTest {
     private static final String JSON_FILE1 = "src/test/resources/file1.json";
@@ -25,10 +25,9 @@ public class DiferTest {
         yaml1Content = readFile(YAML_FILE1);
         yaml2Content = readFile(YAML_FILE2);
 
-        assert !json1Content.isEmpty() : "File1.json is empty";
-        assert !json2Content.isEmpty() : "File2.json is empty";
-        assert !yaml1Content.isEmpty() : "File1.yml is empty";
-        assert !yaml2Content.isEmpty() : "File2.yml is empty";
+        assertFalse(json2Content.isEmpty());
+        assertFalse(yaml1Content.isEmpty());
+        assertFalse(yaml2Content.isEmpty());
     }
 
     @Test

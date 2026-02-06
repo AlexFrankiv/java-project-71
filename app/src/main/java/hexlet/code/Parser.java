@@ -14,6 +14,8 @@ public class Parser {
             mapper = new ObjectMapper();
         } else if ("yaml".equals(format)) {
             mapper = new ObjectMapper(new YAMLFactory());
+        } else if ("yml".equals(format)) {
+            mapper = new ObjectMapper(new YAMLFactory());
         } else {
             throw new IllegalArgumentException("Unsupported format: " + format);
         }

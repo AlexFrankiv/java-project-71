@@ -12,7 +12,10 @@ public class Formatter {
             case "plain" -> Plain.format(diffs);
             case "json" -> Json.format(diffs);
             case "stylish" -> Stylish.format(diffs);
-            default -> Stylish.format(diffs);
+            default -> {
+                throw new IllegalArgumentException(
+                    "Unsupported output format: '" + formatName);
+            }
         };
     }
 }

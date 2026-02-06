@@ -30,7 +30,7 @@ public class Stylish {
                             .append(formatValue(diff.getNewValue())).append("\n");
                     break;
                 default:
-                    throw new Exception("Unknown status");
+                    throw new Exception("Unknown status: " + diff.getStatus());
             }
         }
 

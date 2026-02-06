@@ -34,7 +34,7 @@ public class Differ {
         } else if (filePath.endsWith(".yaml") || filePath.endsWith(".yml")) {
             return "yaml";
         } else {
-            throw new Exception("Unsupported format: " + filePath);
+            return null;
         }
     }
 }
