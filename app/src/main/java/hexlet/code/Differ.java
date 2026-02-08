@@ -29,12 +29,7 @@ public class Differ {
     }
 
     private static String getDataFormat(String filePath) throws Exception {
-        if (filePath.endsWith(".json")) {
-            return "json";
-        } else if (filePath.endsWith(".yaml") || filePath.endsWith(".yml")) {
-            return "yaml";
-        } else {
-            return null;
-        }
+        int getLastIndex = filePath.lastIndexOf('.');
+        return filePath.substring(getLastIndex + 1).toLowerCase();
     }
 }
